@@ -32,7 +32,26 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        <div class="col-lg-12">
+                            <label for="">
+                                Nama Pengarang :
+                            </label>
+                            {{$pengarang->nama_pengarang}}
+                            <br>
 
+                            <label for="">
+                                Email Pengarang :
+                            </label>
+                            {{$pengarang->email}}
+                            <br>
+
+                            <label for="">
+                                Nomor Telepon Pengarang :
+                            </label>
+                            {{$pengarang->tlp}}
+                            <br>
+
+                        </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">

@@ -6,7 +6,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <title></title>
+            <title>Daftar Pengarang</title>
         </head>
         <body>
             <div class="container">
@@ -44,9 +44,17 @@
                                                     {{$data->tlp}}
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-success">Edit</button>
+                                                    <a href="{{route('pengarang.edit', $data->id)}}" class="btn btn-info">Edit</a>
+                                                    <a href="{{route('pengarang.show', $data->id)}}" class="btn btn-warning">Show</a>
+                                                    <form action="{{route('pengarang.destroy', $data->id)}}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </form>
+
+                                                    {{-- <button class="btn btn-success">Edit</button>
                                                     <button class="btn btn-warning">Show</button>
-                                                    <button class="btn btn-danger">Delete</button>
+                                                    <button class="btn btn-danger">Delete</button> --}}
                                                 </td>
                                             </tr>
                                         @endforeach

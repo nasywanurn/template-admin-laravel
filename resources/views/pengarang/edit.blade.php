@@ -8,12 +8,11 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Halaman Edit Daftar Buku</h1>
+                            <h1>Halaman Edit Daftar Nama Pengarang</h1>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
-
         </head>
         <body>
             <!-- Main content -->
@@ -32,7 +31,49 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form action="{{route('pengarang.update', $pengarang->id)}}" method="post" accept="">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <label for="">Nama Pengarang</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="text" value="{{$pengarang->nama_pengarang}}" class="form-control" name="nama_pengarang" placeholder="Masukkan nama pengarang" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <label for="">Email</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="email" value="{{$pengarang->email}}" class="form-control" name="email" placeholder="masukan email pengarang" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <label for="">Telepon</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="text" value="{{$pengarang->tlp}}" class="form-control" name="tlp" placeholder="masukan no telepon pengarang" required>
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <button type="submit" class="btn-btn-danger">Simpan data</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
